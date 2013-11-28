@@ -1,0 +1,227 @@
+@mixin filter($filter-type,$filter-amount) { 
+  -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+  -moz-filter: $filter-type+unquote('(#{$filter-amount})');
+  -ms-filter: $filter-type+unquote('(#{$filter-amount})');
+  -o-filter: $filter-type+unquote('(#{$filter-amount})');
+  filter: $filter-type+unquote('(#{$filter-amount})');
+}
+
+@mixin gradient($from, $to) {
+  // background-color: $from;
+  background-image: -moz-linear-gradient($from, $to);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+  background-image: -webkit-linear-gradient($from, $to);
+  background-image: -o-linear-gradient($from, $to);
+}
+
+@font-face {
+  font-family: 'Oxygen';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Oxygen Light'), local('Oxygen-Light'), url(/fonts/AwBqWF2kjhlybWamaKMPcbO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+@font-face {
+  font-family: 'Oxygen';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oxygen'), local('Oxygen-Regular'), url(/fonts/eAWT4YudG0otf3rlsJD6zOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+}
+@font-face {
+  font-family: 'Oxygen';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Oxygen Bold'), local('Oxygen-Bold'), url(/fonts/yVHpdQrmTj9Kax1tmFSx2rO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+
+html, body, img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: 300;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  background: #111;
+}
+
+a {
+  text-decoration: none;
+}
+
+header.full {
+  padding-top: 75px;
+  height: 475px;
+  background: #111;
+  position: relative;
+
+  h1 {
+    font-size: 68px;
+    color: #eee;
+    display: block;
+    margin: 0;
+    font-weight: 300;
+    line-height: 1em;
+  }
+
+  h2 {
+    font-size: 25px;
+    color: #eee;
+    display: block;
+    margin: 0 0 0 415px;
+    font-weight: 300;
+    line-height: 1em;
+  }
+
+  .contacts {
+    margin-top: 100px;
+    text-align: right;
+    color: #eee;
+    font-size: 20px;
+
+    a {
+      color: #eee;
+      text-decoration: none;
+    }
+  }
+}
+
+header.small {
+  padding-top: 12px;
+  height: 60px;
+  background: #111;
+  position: relative;
+
+  h1 {
+    font-size: 38px;
+    color: #eee;
+    display: inline;
+    margin: 0 0 0 5px;
+    font-weight: 300;
+    line-height: 1em;
+  }
+
+  .menu {
+    float: right;
+    position: relative;
+
+    ul {
+      list-style: none;
+      padding: 8px 0 0 0;
+      margin: 0px;
+    }
+
+    li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    li.active a, li:hover a {
+      color: #eee;
+    }
+
+    li a {
+      color: #888;
+    }
+    
+    a {
+      text-decoration: none;
+      font-size: 21px;
+    }
+  }
+}
+
+footer {
+  padding-top: 100px;
+  height: 50px;
+  background: #111;
+  text-align: center;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .containerNarrow {
+    width: 768px;
+    margin: 0 auto;
+    position: relative;
+  }
+}
+
+@media (min-width: 769px) {
+  .containerNarrow {
+    width: 890px;
+    margin: 0 auto;
+    position: relative;
+  }
+}
+
+.widePreview {
+  width: 100%;
+  height: 550px;
+  position: relative;
+
+  .imageWrap {
+    height: 100%;
+    min-width: 980px; 
+    display: block;
+    // @include filter(grayscale, 100%);
+  }
+
+
+  .titleWrap {
+    padding: 20px 0 0 0;
+    // background: rgba(0, 0, 0, 0.5);
+    // @include gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+
+    h2 {
+      font-size: 65px;
+      color: #fff;
+      display: block;
+      margin: 0;
+      font-weight: 700;
+      // top: 25px;
+    }
+  }
+}
+
+.album {
+  display: block;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  .imageContainer {
+    background: #111 url(/images/loader.gif) no-repeat;
+    background-position: center center;
+
+    img {
+      margin: 0;
+      padding: 0;
+      display: block;
+      vertical-align: bottom;
+      opacity: 0;
+    }
+  }
+}
+
+.loader {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 100;
+  height: 66px;
+  margin-top: -33px;
+  width: 66px;
+  margin-left: -33px;
+  background: url(/images/loader.gif);
+  background-position: certer certer;
+}
+
+.hidden {
+  display: none;
+}

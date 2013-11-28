@@ -1,0 +1,41 @@
+DOCTYPE html
+
+html
+  head
+    = partial :header
+    
+    javascript:
+      function collage() {
+        $('article.album').collagePlus(
+          {
+            'fadeSpeed' : 0,
+            'targetHeight' : 500,
+          }
+        );
+      };
+
+      $(document).ready(function () {
+        $('article.album').removeClass('hidden');
+        collage();
+
+        $('article.album').imagesLoaded()
+          .progress(function(instance, image) {
+            if (image.isLoaded) {
+              $(image.img).parent().css('background', '#111');
+              $(image.img).fadeTo(1000, 1.0);
+            }
+          });
+      });
+
+      var resizeTimer = null;
+      $(window).bind('resize', function() {
+        if (resizeTimer) clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(collage, 200);
+      });
+
+  body
+
+    = yield
+
+    footer
+      | © 2013 Roman Spiridonov
