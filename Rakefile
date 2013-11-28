@@ -26,3 +26,8 @@ task :build do
   (Dir['build/javascripts/*'] - ['build/javascripts/all.js']).each{ |f| FileUtils.rm_r(f) }
   (Dir['build/stylesheets/*'] - ['build/stylesheets/all.css']).each{ |f| FileUtils.rm_r(f) }
 end
+
+desc "Start dev server"
+task :server do
+  system("middleman server")
+end

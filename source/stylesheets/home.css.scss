@@ -65,7 +65,7 @@ header.full {
     font-size: 68px;
     color: #eee;
     display: block;
-    margin: 0;
+    margin: 0 0 0 10px;
     font-weight: 300;
     line-height: 1em;
   }
@@ -80,7 +80,7 @@ header.full {
   }
 
   .contacts {
-    margin-top: 100px;
+    margin: 100px 10px 0 0;
     text-align: right;
     color: #eee;
     font-size: 20px;
@@ -145,31 +145,20 @@ footer {
   color: #666;
 }
 
-@media (max-width: 768px) {
-  .containerNarrow {
-    width: 768px;
-    margin: 0 auto;
-    position: relative;
-  }
-}
-
-@media (min-width: 769px) {
-  .containerNarrow {
-    width: 890px;
-    margin: 0 auto;
-    position: relative;
-  }
-}
-
 .widePreview {
   width: 100%;
   height: 550px;
   position: relative;
 
   .imageWrap {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     height: 100%;
-    min-width: 980px; 
+    // min-width: 980px; 
+    max-width: 1600px;
     display: block;
+    margin: 0 auto;
     // @include filter(grayscale, 100%);
   }
 
@@ -225,3 +214,114 @@ footer {
 .hidden {
   display: none;
 }
+
+.containerNarrow {
+  width: 890px;
+  margin: 0 auto;
+  position: relative;
+}
+
+// @media (max-width: 768px) {
+//   .containerNarrow {
+//     width: 768px;
+//     margin: 0 auto;
+//     position: relative;
+//   }
+// }
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+  .containerNarrow {
+    width: 748px;
+    padding: 0 10px 0 10px;
+  }  
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {
+  .containerNarrow {
+    width: 300px;
+    padding: 0 10px 0 10px;
+  }
+
+  header.full {
+    padding-top: 75px;
+    height: 275px;
+    
+    h1 {
+      font-size: 35px;
+      margin: 0 0 0 10px;
+    }
+
+    h2 {
+      font-size: 13px;
+      margin: 0 0 0 210px;
+    }
+
+    .contacts {
+      margin: 100px 5px 0 0;
+      font-size: 13px;
+
+      a {
+        color: #eee;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .widePreview {
+    height: 250px;
+    
+    .titleWrap {
+      padding: 20px 0 0 0;
+
+      h2 {
+        font-size: 35px;
+        margin: 0;
+      }
+    }
+  }
+
+  header.small {
+    padding-top: 10px;
+    height: 85px;
+
+    h1 {
+      font-size: 35px;
+      margin: 0 0 10px 8px;
+    }
+
+    .menu {
+      float: none;
+      position: relative;
+      height: 20px;
+      width: 100%;
+      
+      ul {
+        padding: 15px 0 0 0;
+      }
+
+      li {
+        display: inline;
+        margin: 0 20px;
+      }
+      
+      a {
+        text-decoration: none;
+        font-size: 21px;
+      }
+    }
+  }
+
+  footer {
+    padding-top: 50px;
+    height: 25px;
+    font-size: 12px;
+  }
+}
+
+
+
